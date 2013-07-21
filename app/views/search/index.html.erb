@@ -1,0 +1,20 @@
+<%= provide(:title, 'Advanced Search') %>
+
+<h3>Advanced Search</h3>
+
+
+<div class="container">
+	<div class="row">
+		<div class="span4 offset3">
+            <form action = "/search" method="get" >
+               <input type="text" name = "search"  class="search-query" placeholder="Search">
+            </form>
+            <h4><strong>Search By</strong></h4>
+
+            <input type="radio" name="search" value="sa">Religion<br>
+			<input type="radio" name="search" value="asd">SubCaste<br>
+			<input type="radio" name="search" value="asdasd">Occupation<br>
+			<input type="radio" name="search" value="adsas">Marital Status<br>
+	    </div>
+	</div>
+</div>

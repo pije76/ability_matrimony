@@ -1,0 +1,464 @@
+<% provide(:title, 'Sign up') %>
+<h1>Sign up**</h1>
+
+
+<div class="container">
+  <div class="row">
+        <div class="span6">
+            <%= form_for(@user) do |f| %>
+            
+            <%= render 'shared/error_messages' %>
+              <div class="row">
+               <div class="span1">
+                  <strong>Name*</strong>
+               </div>
+               <div class="span4">
+                <%= f.text_field :name, placeholder: "As per in Passport or Voter's ID" %>
+               </div>
+               
+              </div>
+              <div class="row">
+               <div class="span1">
+                  <strong>E-mail*</strong>
+               </div>
+               <div class="span4">
+                <%= f.text_field :email %>
+               </div>
+              </div>
+              <div class="row">
+              <div class="span1">
+                <strong>Password*</strong>
+              </div>
+              <div class="span4">
+                <%= f.password_field :password %>
+              </div>
+             </div>
+             <div class="row">
+              <div class="span1">
+                <strong>Confirm*</strong>
+              </div>
+              <div class="span4">
+                <%= f.password_field :password_confirmation, placeholder: "Retype your password" %>
+              </div>
+             </div>
+        </div>
+      </div>  
+    </div>    
+    <div class="container">       
+        <div class="row">
+         <div class="span2">
+            <strong>Religion*</strong>
+         </div>
+         <div class="span6">
+          
+           <%= f.radio_button :religion, "Hindu" %>Hindu 
+          <%= f.radio_button :religion, "Christian" %>Christian
+          <%= f.radio_button :religion, "Muslim" %>Muslim
+          <%= f.radio_button :religion, "Others" %>Others
+         </div>
+        </div>
+        <br>
+        <div class=row>
+         <div class="span2">
+           <strong>Subcaste:*</strong>
+         </div>
+         <div class="span2">
+           <%= f.text_field :subcaste %>
+         </div>
+        </div>
+        <br>
+       <div class="row">
+        <div class= "span2">
+          <strong>Marital Status*</strong>
+
+        </div>
+        <div class="span6">
+          <%= f.radio_button :marital_status, "Bachelor" %>Bachelor
+          <%= f.radio_button :marital_status, "Spinster" %>Spinster
+          <%= f.radio_button :marital_status, "Married" %>Married
+          <%= f.radio_button :marital_status, "Divorced" %>Divorded
+          <%= f.radio_button :marital_status, "Widow" %>Widow
+          <%= f.radio_button :marital_status, "Widower" %>Widower
+        </div>
+        <div class="span8 offset2">
+          <p>(Widow or Widower - Death Certificate)</p>
+          <p>(If divorced - Court Decree)</p>
+          <p>(For First Marriage - Certificate From VAO)</p>
+        </div>
+       </div>
+       <br>
+
+       <div class=row>
+        <div class="span2">
+          <strong>Date of Birth:*</strong>
+        </div>
+        <div class="span2">
+          <%= f.text_field :dob, :id => "datepicker", :value => Date.today %>
+        </div>
+       </div>
+       <br>
+       <div class=row>
+        <div class="span2">
+          <strong>Age:*</strong>
+        </div>
+        <div class="span2">
+          <%= f.text_field :age, placeholder: "Age in numbers!" %>
+        </div>
+       </div>
+       <br>
+       <div class="row">
+        <div class="span2">
+          <strong>Occupation*</strong>
+        </div>
+        <div class="span6">
+          <%= f.radio_button :occupation, "Government" %>Government
+          <%= f.radio_button :occupation, "Private" %>Private
+          <%= f.radio_button :occupation, "Self-Employment" %>Self-Employment
+          <%= f.radio_button :occupation, "Nil" %>Nil
+        </div>
+       </div>
+       <br>
+       <div class="row">
+          <div class="span2" id="panel">
+            <strong>Address*</strong>
+          </div>
+          <div class="span6">
+            <%= f.text_field :address, :id => "searchTextField" %>
+          </div>
+          <div id="map-canvas"></div>
+       </div>
+       <br>
+        
+        <div class="row">
+          <div class="span2">
+            <strong>Educational Qualification*</strong>
+          </div>
+          <div class="span6">
+            <%= f.text_field :qualification %>
+          </div>
+        </div>  
+        <br>
+        <div class="row">
+          <div class="span2">
+            <strong>Monthly Income*</strong>
+          </div>
+          <div class="span6">
+            <%= f.text_field :income, placeholder: "In IndianRupees Exactly !" %>
+          </div>
+        </div>   
+        <br>
+
+        
+
+        <div class="row">
+          <div class="span12 center">
+            <h3><strong>Nature of disability*</strong></h3>
+          </div>
+          <br>
+          
+          <div class="span3">
+            <input id="user_disability_Affected_By_Polio" name="user[disability]" value="Affected By Polio" type="radio"> Affected By Polio <br>
+            <input id="user_disability_Disability_in_One_Arm" name="user[disability]" value="Disability in One Arm" type="radio"> Disability in One Arm<br>
+            <input id="user_disability_Disability_From_Birth" name="user[disability]" value="Disability From Birth" type="radio"> Disability From Birth<br>
+            <input id="user_disability_Hearing_Impairment_Alone" name="user[disability]" value="Hearing Impairment Alone" type="radio"> Hearing Impairment Alone<br>
+            <input id="user_disability_Blurred_Vision" name="user[disability]" value="Blurred Vision" type="radio">Blurred Vision<br>
+            <input id="user_disability_Recovered_from_Leprosy" name="user[disability]" value="Recovered from Leprosy" type="radio">Recovered from Leprosy<br>
+          </div>
+          <div class="span3">
+            <input id="user_disability_Loss_of_Two_Arms" name="user[disability]" value="Loss of Two Arms" type="radio"> Loss of Two Arms<br>
+            <input id="user_disability_Disability_in_One_Leg" name="user[disability]" value="Disability in One Leg" type="radio"> Disability in One Leg<br>
+            <input id="user_disability_Disability_due_to_Accident" name="user[disability]" value="Disability due to Accident" type="radio"> Disability due to Accident<br>
+            <input id="user_disability_Speech_Hearing_Impaired" name="user[disability]" value=" Speech&amp;Hearing Impaired" type="radio"> Speech&amp;Hearing Impaired<br>
+            <input id="user_disability_Movement by Crawling" name="user[disability]" value="Movement by Crawling" type="radio">Movement by Crawling<br>
+            <input id="user_disability_Recovered_from_Mental Disorder" name="user[disability]" value="Recovered from Mental Disorder" type="radio">Recovered from Mental Disorder<br>
+          </div>
+          <div class="span3">
+            <input id="user_disability_Loss_of_Two_Legs" name="user[disability]" value="Loss of Two Legs" type="radio"> Loss of Two Legs<br>
+            <input id="user_disability_Multiple_Disability" name="user[disability]" value="Multiple Disability" type="radio"> Multiple Disability<br>
+            <input id="user_disability_DumbSpeech_Impairment Alone" name="user[disability]" value="Dumb/Speech Impairment Alone" type="radio"> Dumb/Speech Impairment Alone<br>
+            <input id="user_disability_Visually_Impaired" name="user[disability]" value="Visually Impaired" type="radio"> Visually Impaired<br>
+            <input id="user_disability_Mentally_Disabled" name="user[disability]" value="Mentally Disabled" type="radio">Mentally Disabled<br>
+            <input id="user_disability_Dwarf" name="user[disability]" value="Dwarf" type="radio">Dwarf<br>
+          </div>
+          <br>  
+        </div>
+        <br>
+        <div class="row">
+          <div class="span4">
+              <%= f.text_field :dother, placeholder: "If anyother,please specify" %>
+          </div>
+        </div>
+        
+        
+
+        <div class="row">
+          <div class="span2">
+            <strong>Are you willing to marry a widow or divorced person?*</strong>
+          </div>
+          <div class="span6">
+            <%= f.radio_button :willing, "Yes" %>Yes
+            <%= f.radio_button :willing, "No" %>No
+            <%= f.text_field :wother, placeholder: "Specify the Reason" %>
+          </div>
+        </div>
+        <br>
+
+        <div class="row">
+          <div class="span12 center">
+            <h3><strong>Details of Person whom you want to marry*</strong></h3>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="span2">
+            <strong>Your own caste or religion ?*</strong>
+          </div>
+          <div class="span6">
+            <%= f.radio_button :own, "Yes" %>Yes
+            <%= f.radio_button :own, "No" %>No
+          </div>
+        </div>
+        <br>
+
+        
+        <div class="row">
+          <div class="span2">
+            <strong>Should not be a disabled person*</strong>
+          </div>
+          <div class="span6">
+            <%= f.radio_button :disabled, "Yes" %>Yes
+            <%= f.radio_button :disabled, "No" %>No
+          </div>
+        </div>
+        <br>
+        
+        
+        <div class="row">
+          <div class="span2">
+            <strong>Divorce Accepted*</strong>
+          </div>
+          <div class="span6">
+            <%= f.radio_button :divorce, "Yes" %>Yes
+            <%= f.radio_button :divorce, "No" %>No
+            <%= f.text_field :reasons, placeholder: "Specify the reason*" %>
+          </div>
+        </div>
+        <br>
+
+<h3>Parent's Information*</h3>
+        <div class="row">
+          <div class="span2">
+            <strong>Father's Name*</strong>
+          </div>
+          <div class="span6">
+            <%= f.text_field :father_name %>
+          </div>
+        </div>
+        <br>
+
+        
+
+        <div class="row">
+          <div class="span2">
+            <strong>Father's Age*</strong>
+          </div>
+          <div class="span6">
+            <%= f.text_field :father_age %>
+          </div>
+        </div>
+        <br>
+
+
+        
+
+        <div class="row">
+          <div class="span2">
+            <strong>Is your Father ?*</strong>
+          </div>
+          <div class="span6">
+            <%= f.radio_button :father_status, "Alive" %>Alive
+            <%= f.radio_button :father_status, "Deceased" %>Deceased
+          </div>
+        </div>
+        <br>
+
+
+        <div class="row">
+          <div class="span2">
+            <strong>Mother's Name*</strong>
+          </div>
+          <div class="span6">
+            <%= f.text_field :mother_name %>
+          </div>
+        </div>
+        <br>
+        
+
+        <div class="row">
+          <div class="span2">
+            <strong>Mother's Age*</strong>
+          </div>
+          <div class="span6">
+            <%= f.text_field :mother_age %>
+          </div>
+        </div>
+        <br>
+
+        <div class="row">
+          <div class="span2">
+            <strong>Is your Mother ?*</strong>
+          </div>
+          <div class="span6">
+            <%= f.radio_button :mother_status, "Alive" %>Alive
+            <%= f.radio_button :mother_status, "Deceased" %>Deceased
+          </div>
+        </div>
+        <br>
+
+        <div class="row">
+          <div class="span2">
+            <strong>Parent's Address*</strong>
+          </div>
+          <div class="span6">
+            <%= f.text_field :parent_address, :id => "searchTextFieldParent" %>
+          </div>
+          <div id="map-canvas1"></div>
+       </div>
+       <br>
+
+        <div class="row">
+          <div class="span2">
+            <strong>Parent's Phone*</strong>
+          </div>
+          <div class="span6">
+            <%= f.text_field :parent_phone %>
+          </div>
+        </div>
+        <br>
+        
+      <%= f.submit "Sign up", class: "btn btn-large btn-primary" %>
+     <% end %>
+     </div>
+    </div>
+
+    
+  </div>
+</div>
+
+<!-- <div class="row">
+	<%= form_for(@user) do |f| %>
+	<%= render 'shared/error_messages' %>
+          
+      <%= f.label :name %>
+      <%= f.text_field :name %>
+
+      <%= f.label :email %>
+      <%= f.text_field :email %>
+
+      <%= f.label :password %>
+      <%= f.password_field :password %>
+
+      <%= f.label :password_confirmation, "Confirmation" %>
+      <%= f.password_field :password_confirmation %>
+
+      <%= f.label :marital_status, "Religion :", class: "formhead" %>
+      Hindu &nbsp; <%= f.radio_button :marital_status, "Hindu" %>
+      Christian &nbsp; <%= f.radio_button :marital_status, "Christian" %>
+      Muslim &nbsp; <%= f.radio_button :marital_status, "Muslim" %>
+
+    
+    <%= f.label :marital_status, "Marital Status :", class: "formhead" %>
+      Bachelor &nbsp; <%= f.radio_button :marital_status, "Bachelor" %>
+      Spinster &nbsp; <%= f.radio_button :marital_status, "Spinster" %>
+      Widow &nbsp; <%= f.radio_button :marital_status, "Widow" %>
+      Divorced &nbsp; <%= f.radio_button :marital_status, "Divorced" %>
+      Widower &nbsp; <%= f.radio_button :marital_status, "Widower" %>
+    
+    <%= f.label :occupation, "Occupation :", class: "formhead" %>
+        Government &nbsp; <%= f.radio_button :occupation, "Government" %>
+        Private &nbsp; <%= f.radio_button :occupation, "Private" %>
+        Self-Employment &nbsp; <%= f.radio_button :occupation, "Self-Employment" %>
+        Nil &nbsp; <%= f.radio_button :occupation, "Nil" %>
+    
+    <%= f.label :address, "Residential Address" %>
+    <%= f.text_area :address, placeholder: "Enter a full address with PINCODE" %>
+    
+    <%= f.label :qualification, "Educational Qualification" %>
+    <%= f.text_field :qualification %>
+    
+    <%= f.label :income, "Monthly Income" %>
+    <%= f.text_field :income, placeholder: "In IndianRupees Exactly !" %>
+    
+    <%= f.label :disability, "Nature of disability" %>
+    <%= f.text_field :disability %>
+    
+    <%= f.label :dother, "If anyother,please specify" %>
+    <%= f.text_field :dother %>
+    
+    <%= f.label :willing, "Are you willing to marry a widow or divorced person?" %>
+    <%= f.text_field :willing %>
+    
+    <%= f.label :wother, "If yes/no means specify the reason" %>
+    <%= f.text_field :wother %>
+    
+    <%= f.label :own, "Your own caste or religion" %>
+    <%= f.text_field :own %>
+    
+    <%= f.label :disabled, "Should not be a disabled person" %>
+    <%= f.text_field :disabled %>
+    
+    <%= f.label :divorce, "Divorce Accepted" %>
+    <%= f.text_field :divorce %>
+
+    <%= f.label :reasons, "Specify the reasons" %>
+    <%= f.text_field :reasons %>
+
+    <%= f.label :father_name, "Father's Name" %>
+    <%= f.text_field :father_name %>
+    
+    <%= f.label :father_age, "Father's Age" %>
+    <%= f.text_field :father_age %>
+    
+    <%= f.label :father_status, "Father Alive/Deceased" %>
+    <%= f.text_field :father_status %>
+    
+    
+    <%= f.label :mother_name, "Mother's Name" %>
+    <%= f.text_field :mother_name %>
+    
+    <%= f.label :mother_age, "Mother's Age" %>
+    <%= f.text_field :mother_age %>
+    
+    <%= f.label :mother_status, "Mother Alive/Deceased" %>
+    <%= f.text_field :mother_status %>
+    
+    <%= f.label :parent_address, "Parent's Address" %>
+    <%= f.text_area :parent_address %>
+    
+    <%= f.label :parent_phone, "Parent's Contact Phone number" %>
+    <%= f.text_field :parent_phone %>
+
+    <div id="panel" style="margin-left: -260px">
+      <input id="searchTextField" type="text" size="50">
+      <input type="radio" name="type" id="changetype-all" checked="checked">
+      <label for="changetype-all">All</label>
+
+      <input type="radio" name="type" id="changetype-establishment">
+      <label for="changetype-establishment">Establishments</label>
+
+      <input type="radio" name="type" id="changetype-geocode">
+      <label for="changetype-geocode">Geocodes</lable>
+    </div>
+    <div id="map-canvas"></div>
+
+  <%= f.submit "Create my account", class: "btn btn-large btn-primary" %>
+ <% end %>
+</div> -->
+
+<p>** If your provided information is not agreed by the Admin, he has the full rights to delete your Account</p>
+
+<p>* Fields are compulsory</p>
+
+<script>
+$('#datepicker').datepicker({format: 'yyyy-mm-dd'});
+</script>

@@ -1,0 +1,16 @@
+<li>
+	<div class="span4">
+  		<%= gravatar_for user, size: 52 %>
+  		<%= link_to user.name, user %>
+  		<% if current_user.admin? && !current_user?(user) %>
+    		| <%= link_to "delete", user, method: :delete,
+        		                          data: { confirm: "You sure?" } %>
+  		<% end %>
+	</div>
+	<div class="span4 offset2">
+		<p><strong>Age:&nbsp;</strong><%= user.age %></p>
+		<p><strong>Income:&nbsp;</strong><%= user.income %></p>
+		<p><strong>Religion:&nbsp;</strong><%= user.religion %></p>
+		<p><strong>SubCaste:&nbsp;</strong><%= user.subcaste %></p>
+	</div>
+</li>

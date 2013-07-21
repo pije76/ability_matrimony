@@ -1,14 +1,52 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>AbilityMatrimony</title>
+  <title><%= full_title(yield(:title)) %></title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
+
   <%= csrf_meta_tags %>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+  <meta charset="utf-8">
+  <link href="/maps/documentation/javascript/examples/default.css" rel="stylesheet">
+  <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&libraries=places"></script>
+  <%= render 'layouts/shim' %>
+  <script src="/javascript/java.js" type="text/javascript"></script>
 </head>
 <body>
+	<header class="lg1">
+		<div class="container-fluid">
+			<div class="row-fluid">
+				<div id="lg2" class="span12">
+					<h1><%= image_tag("image.png", :size => "64x64", :alt => "Show Group") %>
+          Ability Matrimony ! India's 1st Matrimony for differently abled</h1>
+				</div>
+        <div class="row-fluid">
+          <div class="span4 offset8">
+            <small>sponsored by <%= full_title('') %></small>
+          </div>
+        </div>
+        
+			</div>
+		</div>
+	</header>
+	<div class="container-fluid">
+		<%= render 'layouts/header'%>
+	</div>
 
-<%= yield %>
-
+	<div class="container">
+		<% flash.each do |key, value| %>
+      	  <div class="alert alert-<%= key %>"><%= value %></div>
+      	<% end %>
+      <%= yield %>
+    </div>
+    <div class="container-fluid">
+    	<%= render 'layouts/footer' %>
+    	<!-- <%= debug(params) if Rails.env.development? %> -->
+    </div>
+    <script>
+    $('.dropdown-toggle').dropdown();
+    </script>
 </body>
 </html>

@@ -1,0 +1,79 @@
+<% provide(:title, @user.name) %>
+<div class="row">
+  
+</div>
+<div class="container">
+  <div class="row">
+    <aside class="span4 offset5">
+      <section>
+        <%= gravatar_for @user %>
+
+      </section>
+    </aside>
+  </div>
+    
+  <div class="row">
+    <div class="span6">
+      <br>
+        <p><strong>Name : &nbsp;</strong><%= @user.name %></p>
+        <p><strong>Date of Birth:&nbsp;</strong><%= @user.dob %></p>
+        <p><strong>Age:&nbsp;</strong><%= @user.age %></p>
+        <p><strong>Religion:  &nbsp;</strong><%= @user.religion %></p>
+        <p><strong>SubCaste: &nbsp;</strong><%= @user.subcaste %></p>
+        <p><strong>Educational Qualification:&nbsp; </strong><%= @user.qualification %></p>
+        <p><strong>Occupation:&nbsp; </strong><%= @user.occupation %></p>
+        <p><strong>Income/month (in INR): &nbsp; </strong><%= @user.income %></p>
+        <p><strong>Marital Status: &nbsp;</strong><%= @user.marital_status %></p>
+    </div>
+    <div class="span2">
+      <h5>Nature of Disability :</h5>
+    </div>
+    <div class="span4">
+        <br>
+        <p><strong><%= @user.disability %></strong></p>
+        <p><%= @user.dother %></p>
+    </div>
+  </div>
+  <div class="span12">
+    <h3 class="center">Details of person whom I want to Marry</h3>
+
+      <p><strong>Am I willing to marry a widow or divorced person?&nbsp; </strong><%= @user.willing %></p>
+      <p><strong>Because:&nbsp;</strong><%= @user.wother %> </p>
+      <p><strong>Own caste or religion ?&nbsp; </strong><%= @user.own %></p>
+      <p><strong>Accepting Disabled Person?&nbsp;</strong><%= @user.disabled %></p>
+      <p><strong>Accepting Divorced Person? &nbsp;</strong><%= @user.divorce %></p>
+      <p><strong>Reasons: &nbsp;</strong><%= @user.reasons %></p>
+
+  </div>
+
+  <div class="row">
+    <div class="span3">
+      <h4>Parent's Information:</h4>
+    </div>
+    <div class="span6">
+      <br>
+      <br>
+      <p><strong>Father's Name:&nbsp;</strong><%= @user.father_name %></p>
+      <p><strong>Father's Age:&nbsp;</strong><%= @user.father_age %></p>
+      <p><strong>My Father is :&nbsp;</strong><%= @user.father_status %></p>
+      <p><strong>Mother's Name:&nbsp;</strong><%= @user.mother_name %></p>
+      <p><strong>Mother's Age:&nbsp;</strong><%= @user.mother_age %></p>
+      <p><strong>My Mother is :&nbsp;</strong><%= @user.mother_status %></p>
+      <p><strong>Parent's Address:&nbsp;</strong><%= @user.parent_address %></p>
+      <p><strong>Parent's Phone number:&nbsp;</strong><%= @user.parent_phone %></p>
+    </div>
+  </div>
+</div>
+
+<br>
+<br>
+<h3><%= @user.name %>'s Photos</h3>
+<div class="span8">
+    <% if @user.microposts.any? %>
+      <h3>Gallery (<%= @user.microposts.count %>)</h3>
+      <ol class="microposts">
+        <%= render @microposts %>
+      </ol>
+      <%= will_paginate @microposts %>
+    <% end %>
+</div>

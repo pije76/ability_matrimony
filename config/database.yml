@@ -6,7 +6,7 @@
 development:
   adapter: mysql2
   encoding: utf8
-  database: matrimony
+  database: matrimony1
   username: root
   host: 127.0.0.1
   port: 3306
@@ -17,7 +17,7 @@ development:
 test:
   adapter: mysql2
   encoding: utf8
-  database: matrimony
+  database: matrimony1
   username: root
   host: 127.0.0.1
   port: 3306
@@ -25,7 +25,7 @@ test:
 production:
   adapter: mysql2
   encoding: utf8
-  database: matrimony
+  database: matrimony1
   username: root
   host: 127.0.0.1
   port: 3306
