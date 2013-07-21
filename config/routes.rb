@@ -1,6 +1,4 @@
 AbilityMatrimony::Application.routes.draw do
-    get "password_resets/new"
-
     resources :users
     resources :sessions, only: [:new, :create, :destroy]
     resources :microposts, only: [:create, :destroy]
@@ -15,12 +13,9 @@ AbilityMatrimony::Application.routes.draw do
     match '/signup',  to: 'users#new'
     match '/signin',  to: 'sessions#new'
     match '/signout', to: 'sessions#destroy', via: :delete
-    match '/search', to: 'search#search'
-    match '/advancedsearch', to: 'search#index'
     match '/partners', to: 'static_pages#partners'
     match '/10poruthams', to: 'static_pages#poruthams'
 
-    match '/getimg', to: 'static_pages#getimg'
 
 
     # The priority is based upon order of creation:
