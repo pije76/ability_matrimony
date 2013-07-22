@@ -4,16 +4,14 @@
 </div>
 <div class="container">
   <div class="row">
-    <aside class="span4 offset5">
+    <aside class="span4">
       <section>
-        <%= gravatar_for @user %>
+      <br>
+        <%= image_tag(gravatar_for(@user), :size => "300x200", :alt => "Show Group") %>
 
       </section>
     </aside>
-  </div>
-    
-  <div class="row">
-    <div class="span6">
+    <div class="span4">
       <br>
         <p><strong>Name : &nbsp;</strong><%= @user.name %></p>
         <p><strong>Date of Birth:&nbsp;</strong><%= @user.dob %></p>
@@ -34,17 +32,21 @@
         <p><%= @user.dother %></p>
     </div>
   </div>
-  <div class="span12">
-    <h3 class="center">Details of person whom I want to Marry</h3>
+    
+  <div class="row">
+      <div class="span12">
+        <h3>Details of person whom I want to Marry</h3>
 
-      <p><strong>Am I willing to marry a widow or divorced person?&nbsp; </strong><%= @user.willing %></p>
-      <p><strong>Because:&nbsp;</strong><%= @user.wother %> </p>
-      <p><strong>Own caste or religion ?&nbsp; </strong><%= @user.own %></p>
-      <p><strong>Accepting Disabled Person?&nbsp;</strong><%= @user.disabled %></p>
-      <p><strong>Accepting Divorced Person? &nbsp;</strong><%= @user.divorce %></p>
-      <p><strong>Reasons: &nbsp;</strong><%= @user.reasons %></p>
+        <p><strong>Am I willing to marry a widow or divorced person?&nbsp; </strong><%= @user.willing %></p>
+        <p><strong>Because:&nbsp;</strong><%= @user.wother %> </p>
+        <p><strong>Own caste or religion ?&nbsp; </strong><%= @user.own %></p>
+        <p><strong>Accepting Disabled Person?&nbsp;</strong><%= @user.disabled %></p>
+        <p><strong>Accepting Divorced Person? &nbsp;</strong><%= @user.divorce %></p>
+        <p><strong>Reasons: &nbsp;</strong><%= @user.reasons %></p>
 
+      </div>
   </div>
+  
 
   <div class="row">
     <div class="span3">

@@ -1,11 +1,8 @@
 <li>
 	<div class="span4">
-  		<%= gravatar_for user, size: 52 %>
+  		<%= image_tag(gravatar_for(user), :size => "140x140", class: "img-circle") %>
   		<%= link_to user.name, user %>
-  		<% if current_user.admin? && !current_user?(user) %>
-    		| <%= link_to "delete", user, method: :delete,
-        		                          data: { confirm: "You sure?" } %>
-  		<% end %>
+  		
 	</div>
 	<div class="span4 offset2">
 		<p><strong>Age:&nbsp;</strong><%= user.age %></p>
@@ -13,4 +10,30 @@
 		<p><strong>Religion:&nbsp;</strong><%= user.religion %></p>
 		<p><strong>SubCaste:&nbsp;</strong><%= user.subcaste %></p>
 	</div>
-</li>
+	<div class="span2">
+		<% if current_user.admin? && !current_user?(user) %>
+    		| <%= link_to "delete", user, method: :delete,
+        		                          data: { confirm: "You sure?" }, class: "btn-small btn" %>
+  		<% end %>
+	</div>
+</li> 
+
+
+
+<!-- <li class="span4">
+    <div class="thumbnail">
+      <%= image_tag(gravatar_for(user), :size => "300x200", :alt => "Show Group") %>
+      <h3>
+      	<%= link_to user.name, user %>
+      			<% if current_user.admin? && !current_user?(user) %>
+      	  		| <%= link_to "delete", user, method: :delete,
+      	      		                          data: { confirm: "You sure?" } %>
+      			<% end %>
+      </h3>
+      	<p><strong>Age:&nbsp;</strong><%= user.age %></p>
+      	<p><strong>Income:&nbsp;</strong><%= user.income %></p>
+      	<p><strong>Religion:&nbsp;</strong><%= user.religion %></p>
+      	<p><strong>SubCaste:&nbsp;</strong><%= user.subcaste %></p>
+    </div>
+  </li> -->
+
